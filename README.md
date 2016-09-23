@@ -1,24 +1,28 @@
-# README
+# Quiz master
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is the Quipper exam. You can:
 
-Things you may want to cover:
+  - User signup and singin
+  - Questions CRUD
+  - Answer questions
 
-* Ruby version
+### What I used
 
-* System dependencies
+* Rails 5
+* SQlite
+* Twitter Bootstrap
+* Ruby 2.3.0
+* JQuery (with Coffescript
 
-* Configuration
+### Installation
 
-* Database creation
+Quiz master requires Rails 5 and Ruby 2.3.0+
 
-* Database initialization
+Clone the repository!
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```sh
+$ cd master_quiz
+$ bundle install
+$ rails db:migrate
+$ rails s
+```
