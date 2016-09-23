@@ -1,0 +1,58 @@
+<div class="center jumbotron">
+    <div class="row">
+    
+  <div class="description">
+    <h5 class="question-counter">Question <%= @counter %> of <span id="quiz_length"><%= @quiz_length %></span><h5>
+    <div class="question-display" id="<%= @question.id %>" style="width: 100%; font-size: 50px;"><%= raw @question.content %></div>
+    <br>
+  </div>
+<div class="input-display ">
+  <%= form_tag(quiz_check_path, :method=>'post', id: "submit-answer-form") do %>
+    <p>
+      <%= text_field_tag "Answer", nil, placeholder: "Write your answer",class: "form-control", id:"input-answer-text"%>
+    </p>
+     <p>
+        <%= submit_tag 'Check answer', class: "btn btn-primary btn-raised", id: "submit-answer-button" %>
+   </p>
+  <% end %>
+</div>
+</div>
+</div>
+<!-- modal to show if the answer is correct or incorrect -->
+<div class="modal" id="showResult">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title">Your Answer</h4>
+      </div>
+      <div class="modal-body">
+        <h3 class="graded-answer"></h3>
+        <h5 class="your-answer-label"></h5>
+      </div>
+      <div class="modal-footer">
+         <button type="button" class="btn btn-primary btn-raised" id="next-question-button">Next Question</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="finalResult">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title">Your grade is:</h4>
+      </div>
+      <div class="modal-body">
+        <h5 class="total-answers"></h5>
+        <h5 class="total-correct"></h5>
+        <h2 class="quiz-grade"></h2>
+
+      </div>
+      <div class="modal-footer">
+          <%= link_to "Finish!", home_path, class: "btn btn-raised btn-primary" %>
+      </div>
+    </div>
+  </div>
+</div>

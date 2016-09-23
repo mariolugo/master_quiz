@@ -1,11 +1,34 @@
+
 <div class="center jumbotron">
-  <h1>Welcome to the Sample App</h1>
+  
 
-  <h2>
-    This is the home page for the
-    <a href="http://www.railstutorial.org/">Ruby on Rails Tutorial</a>
-    sample application.
-  </h2>
+  <% if logged_in? %>
+    <% provide(@user.name, @questions) %>
+    <h1>Hi, <%= @user.name %>! </h1>
+    <h3>
+        Now you that are logged in, you can create questions, and also you can take the quiz!
+    </h3>
+    <% if @questions == 0 %>
+        <h3>There are no questions in the quiz <%= fa_icon "frown-o" %></h3>
+        <%= link_to "Add questions", new_question_path , class: "btn btn-raised btn-primary" %>
+    <% else %>
+        <% if @questions == 1 %>
+            <h2>There is 1 question in the quiz </h2>
+        <% else %>
+             <h2>There are <%= @questions %> questions in the quiz </h2>
+        <% end %>
+        <%= link_to "Take me to the quiz!", quiz_path, class: "btn btn-raised btn-primary",id: "start-quiz" %>
+    <% end %>
+    
+  <% else %>
+    <h1>Welcome to the quiz master!</h1>
+    <h2>
+        This is the quiz master application!, you need to login first to create and answer questions!
+    </h2>
 
-  <%= link_to "Sign up now!", signup_path, class: "btn btn-raised btn-primary" %>
+    <%= link_to "Sign up now!", signup_path, class: "btn btn-raised btn-primary" %>
+  <% end %>
+  
 </div>
+
+

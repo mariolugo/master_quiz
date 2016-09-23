@@ -1,0 +1,20 @@
+<div class="principal-display">
+  <div class="description">
+    <div class="correct-answers">
+      <% if @correct == 10 %>
+        <h3> Excellent!</h3>
+      <% elsif @correct.between?(8,9) %>
+        <h3> Great!</h3>
+      <% elsif @correct.between?(6,8) %>
+        <h3> Good!</h3>
+      <% else %>
+        <h3> Not to good!</h3>
+      <% end %>
+      <div class="panel panel-primary">
+        Score: <%= @correct%>/10
+      </div>
+    </div>
+    <br>
+    <%= link_to "Return", '/', class: "btn btn-primary" %>
+  </div>
+</div>

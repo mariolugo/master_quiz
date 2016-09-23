@@ -1,0 +1,18 @@
+<tr id="question-<%= question.id %>">
+    <td><p><%= question.id %></p></td>
+    <td><%= question.content.html_safe %></td>
+    <td><p><%= question.answer %></p></td>
+    <td class="action_buttons">
+        <p>
+            <%= link_to edit_question_path(question), class: "btn btn-primary btn-raised", id:"edit-button" do %>
+                <%= fa_icon "pencil-square-o" %>
+            <% end %>
+        </p>
+        <p class="trash">
+        <%= link_to question_path(question), class: "btn btn-primary btn-raised", id:"edit-button", method: :delete, data: { confirm: 'Are you sure you want to delete this question?' } do %>
+            <%= fa_icon "trash-o" %> 
+        <% end %>
+        
+        </p>
+    </td>
+</tr>

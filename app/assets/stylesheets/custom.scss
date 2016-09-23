@@ -14,8 +14,18 @@ $gray-medium-light: #eaeaea;
 
 /* universal */
 
-body {
-  padding-top: 60px;
+body{
+    height: 100vh;
+    width: 100%;
+    background-image: image-url("bg.jpg");
+    -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-color: transparent !important;
+  -webkit-box-shadow: inset 0px 71px 224px -56px rgba(0,0,0,0.72);
+-moz-box-shadow: inset 0px 71px 224px -56px rgba(0,0,0,0.72);
+box-shadow: inset 0px 71px 224px -56px rgba(0,0,0,0.72);
 }
 
 section {
@@ -33,6 +43,9 @@ textarea {
   }
 }
 
+.btn-primary {
+    background-color: #039BE5 !important;
+}
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
@@ -63,14 +76,27 @@ p {
 
 /* header */
 
+header.navbar{
+    border-radius: 0px !important;
+    background-color: transparent !important;
+    border:none !important;
+    li:hover {
+        color: black;
+    }
+    #logo:hover {
+        color: black !important;
+        text-decoration: none;
+    }
+}
+
 #logo {
+  padding-top: 17px;
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
   color: white;
   text-transform: uppercase;
   letter-spacing: -1px;
-  padding-top: 9px;
   font-weight: bold;
   &:hover {
     color: white;
@@ -78,15 +104,50 @@ p {
   }
 }
 
+ul.nav.navbar-nav.navbar-right li a {
+    display: inline-block !important;
+}
+
+ul.nav.navbar-nav.navbar-right li i {
+    display: inline-block !important;
+}
+
+.dropdown-menu li {
+    padding: 0 15px;
+    color: black;
+}
+
+@media (max-width: 767px){
+    .navbar .navbar-nav .dropdown .dropdown-toggle:after {
+        content: "\f107" !important;
+        font: normal normal normal 14px/1 FontAwesome !important;
+        margin-left: 5px;
+        font-size: 1.5em!important;
+        float: right;
+    }
+
+    .dropdown-menu li {
+        color: white;
+    }
+}
+
 /* footer */
 
 footer {
-  margin-top: 45px;
-  padding-top: 5px;
-  border-top: 1px solid $gray-medium-light;
+  color:black !important;
+  color: white !important;
+    background-color: transparent !important;
+    margin-top: 45px;
+    padding-top: 5px;
+    color: #777777;
+    font-size: 16px;
+  .container{
+      padding-top:5px; 
+      border-top: 1px solid $gray-medium-light !important;
+  }
   color: $gray-light;
   a {
-    color: $gray;
+    color: white;
     &:hover {
       color: $gray-darker;
     }
@@ -172,7 +233,32 @@ input {
   }
 }
 
+.checkbox {
+  margin-top: -10px;
+  margin-bottom: 10px;
+  span {
+    font-weight: normal;
+  }
+}
+
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
+}
+
+.form-group label.control-label {
+    left: 0;
+}
+
+/*tables*/
+.action_buttons{
+    p{
+        display: inline-block;
+    }
+}
+
 /* miscellaneous */
+
 
 .debug_dump {
   clear: both;

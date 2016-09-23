@@ -5,8 +5,13 @@
   <title>
     <%= full_title(yield(:title)) %>
   </title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Master Quiz, by Mario Lugo">
+  <meta name="author" content="Dave Gandy">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'application', media: 'all',
+  <%= stylesheet_link_tag    'application', media: 'all',
                                               'data-turbolinks-track': 'reload' %>
       <%= render 'layouts/shim' %>
 </head>
@@ -17,9 +22,11 @@
     <% flash.each do |message_type, message| %>
       <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
     <% end %>
-    <%= yield %>
+    <div class="main">
+      <%= yield %>
+    </div>
+    
     <%= render 'layouts/footer' %>
-    <%= debug(params) if Rails.env.development? %>
   </div>
 </body>
 <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>

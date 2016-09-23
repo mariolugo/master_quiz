@@ -1,18 +1,35 @@
-  <header class="navbar navbar-fixed-top navbar-inverse">
-    <div class="container">
-      <%= link_to "master quiz", root_path, id: "logo" %>
-        <nav>
-          <ul class="nav navbar-nav navbar-right">
-            <li>
-              <%= link_to "Home", root_path %>
-            </li>
-            <li>
-              <%= link_to "Help", help_path %>
-            </li>
-            <li>
-              <%= link_to "Log in", '#' %>
-            </li>
-          </ul>
-        </nav>
+<header class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to "quiz master", root_path, id: "logo" %>
     </div>
-  </header>
+    <div class="navbar-collapse collapse navbar-responsive-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= fa_icon "home" %><%= link_to "Home", root_path %></li>
+        <li><%= fa_icon "question" %><%= link_to "Help", help_path %></li>
+        <% if logged_in? %>
+            <li><%= fa_icon "list-alt" %> <%= link_to "Quiz panel", questions_path %></li>
+          <li class="dropdown">
+            <a data-target="#" class="dropdown-toggle" data-toggle="dropdown">
+              Account <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><%= fa_icon "user" %> <%= link_to "Profile", current_user %></li>
+              <li class="divider"></li>
+              <li><%= fa_icon "sign-out" %>
+                <%= link_to "Log out", logout_path, method: "delete" %>
+              </li>
+            </ul>
+          </li>
+        <% else %>
+          <li><%= fa_icon "sign-in" %><%= link_to "Log in", login_path %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</header>
