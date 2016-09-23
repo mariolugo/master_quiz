@@ -2,19 +2,16 @@ require 'test_helper'
 
 class HomePageControllerTest < ActionDispatch::IntegrationTest
 
-  def setup
-    @base_title = "Master quiz"
-  end
-
   test "should get home" do
-    get home_page_home_url
+    get root_path
     assert_response :success
-    assert_select "title", "Home | #{@base_title}"
+    assert_select "title", "Master quiz"
   end
 
   test "should get help" do
-    get home_page_help_url
+    get help_path
     assert_response :success
+    assert_select "title", "Help | Master quiz"
   end
 
 end

@@ -1,14 +1,30 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= yield(:title) %> | Master quiz</title>
-    <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<head>
+  <title>
+    <%= full_title(yield(:title)) %>
+  </title>
+  <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all',
+                                              'data-turbolinks-track': 'reload' %>
+      <%= render 'layouts/shim' %>
+</head>
 
-  <body>
+<body>
+  <%= render 'layouts/header' %>
+  <div class="container">
     <%= yield %>
-  </body>
+    <%= render 'layouts/footer' %>
+  </div>
+</body>
+<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <script>
+    $(function() {
+      $.material.init();
+    });
+
+    
+  </script>
+
 </html>
