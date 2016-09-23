@@ -20,8 +20,6 @@ Quiz master requires Rails 5 and Ruby 2.3.0+
 
 Clone the repository!
 
-Install the dependencies and devDependencies and start the server.
-
 ```sh
 $ cd master_quiz
 $ bundle install
