@@ -30,14 +30,12 @@ $(document).ready ->
         $('.modal-title').html 'Congratulations!'
         $('.modal-title').css 'color', '#5cb85c'
         $('.graded-answer').html 'Your answer was right!'
-        nextQuestion()
       else
         $('#try-again-button').prop 'disabled', false
         $('.modal-title').html 'Ups.. wrong answer!'
         $('.graded-answer').html 'Your answer was incorrect ;(!'
         $('.modal-title').css 'color', '#d9534f'
         $('.your-answer-label').html 'Your answer: ' + answer
-        nextQuestion()
       return
     #end of post
     return
